@@ -1,13 +1,13 @@
 const bcrypt = require('bcryptjs')
 const db = require('../../database/dbConfig.js')
 const jwt = require('jsonwebtoken')
-const jwtKey = 'lkj;lkj;lkjaf;lek'
+const jwtSecret = process.env.JWT_SECRET
 
 function generateToken({ username }) {
   const payload = { username }
   const options = { expiresIn: '1d' }
 
-  return jwt.sign(payload, jwtKey, options)
+  return jwt.sign(payload, jwtSecret, options)
 }
 
 function login(req, res) {

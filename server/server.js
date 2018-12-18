@@ -15,6 +15,8 @@ const {
   addFriend
 } = require('./controllers')
 
+require('dotenv').config()
+
 const server = express()
 
 configureMiddleware(server)
